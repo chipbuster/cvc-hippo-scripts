@@ -2,7 +2,7 @@
 
 ### Checks that there are no trash directories present
 
-source config.sh
+source /net/cvcfs/storage/cvcfs-admin/scripts/config.sh
 
 cd "$LOGDIR"
 

@@ -2,7 +2,7 @@
 
 ### Checks that there are no unauthorized files at the top level
 
-source config.sh
+source /net/cvcfs/storage/cvcfs-admin/scripts/config.sh
 
 cd "$LOGDIR"
 
@@ -30,14 +30,13 @@ find /net/cvcfs/storage -maxdepth 1 -type f | while read RAWFNAME; do
 
             ## Create a message
             MESSAGE_FILE="$TMPDIR/msg"
-            rm -f "$MESSAGE_FILE"  # Clean 
+            rm -f "$MESSAGE_FILE"  # Clean
             cat "${MSGDIR}/toplevel.txt" > "$MESSAGE_FILE"
             echo "$RAWFNAME" >> "$MESSAGE_FILE"
 
             # Send the message
             mail -s "$SUBJECT" "$EMAIL_ADDR" < "$MESSAGE_FILE"
 
-            echo "Trash file $BASEFNAME from owner $OWNER"
         fi
         echo "ILLEGAL FILE $RAWFNAME owned by $OWNER"
     fi

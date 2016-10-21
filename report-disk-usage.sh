@@ -2,7 +2,7 @@
 
 ### Checks that the amount of storage used isn't running too low
 
-source config.sh
+source /net/cvcfs/storage/cvcfs-admin/scripts/config.sh
 
 cd "$LOGDIR"
 USEFILE=rawdiskusage.internal.txt   # Used for internal calculations
