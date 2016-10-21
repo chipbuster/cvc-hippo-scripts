@@ -26,13 +26,15 @@ find /net/cvcfs/storage -maxdepth 1 -type f | while read RAWFNAME; do
         if [ $(looks-like-username "$OWNER") == "yes" ]; then
             ## Time to send mail!
             EMAIL_ADDR="${OWNER}@ices.utexas.edu"
-            SUBJECT="[CVC Watchdog]: Trash Files Present"
+            SUBJECT="[CVC Watchdog]: Toplevel Files Present"
 
-            ## Create a message by sedding stuff
+            ## Create a message
             MESSAGE_FILE="$TMPDIR/msg"
+            rm -f "$MESSAGE_FILE"  # Clean 
             cat "${MSGDIR}/toplevel.txt" > "$MESSAGE_FILE"
             echo "$RAWFNAME" >> "$MESSAGE_FILE"
 
+            # Send the message
             mail -s "$SUBJECT" "$EMAIL_ADDR" < "$MESSAGE_FILE"
 
             echo "Trash file $BASEFNAME from owner $OWNER"

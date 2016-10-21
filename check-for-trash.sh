@@ -20,6 +20,7 @@ find /net/cvcfs/storage -type d | while read FNAME; do
 
             ## Create a message by sedding stuff
             MESSAGE_FILE="$TMPDIR/msg"
+            rm -f "$MESSAGE_FILE"
             cat "${MSGDIR}/have-trash.txt" > "$MESSAGE_FILE"
             echo "$FNAME" >> "$MESSAGE_FILE"
             cat "${MSGDIR}/have-trash-2.txt" >> "$MESSAGE_FILE"

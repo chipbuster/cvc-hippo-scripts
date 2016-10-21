@@ -2,6 +2,8 @@
 
 # Also contains a few small utility functions
 
+set -euo pipefail
+
 export STORDIR="/net/cvcfs/storage"    # The location of the CVCFS Store
 export OUTDIR="/net/cvcfs/storage/cvcfs-admin/output" # Location to log output
 export TODAY="$(date +%F)"             # Today's date
