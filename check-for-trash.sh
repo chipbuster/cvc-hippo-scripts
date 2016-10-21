@@ -20,11 +20,13 @@ find /net/cvcfs/storage -type d | while read FNAME; do
 
             ## Create a message by sedding stuff
             MESSAGE_FILE="$TMPDIR/msg"
-            cat "$MSGDIR/have-trash.txt" > "$MESSAGE_FILE"
+            cat "${MSGDIR}/have-trash.txt" > "$MESSAGE_FILE"
             echo "$FNAME" >> "$MESSAGE_FILE"
-            cat "$MSGDIR/have-trash-2.txt" >> "$MESSAGE_FILE"
+            cat "${MSGDIR}/have-trash-2.txt" >> "$MESSAGE_FILE"
 
             mail -s "$SUBJECT" "$EMAIL_ADDR" < "$MESSAGE_FILE"
+
+            echo "Trash file $BASEFNAME from owner $OWNER"
         fi
     fi
 

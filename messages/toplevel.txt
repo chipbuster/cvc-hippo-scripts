@@ -1,0 +1,7 @@
+==AUTOMATED MESSAGE FROM HIPPO WATCHDOG==
+
+You have a toplevel file in /net/cvcfs/storage. Please remove it and consult
+the README.md for instructions on how to use the store.
+
+The file in question is:
+
