@@ -1,0 +1,6 @@
+==AUTOMATED MESSAGE FROM HIPPO WATCHDOG==
+
+Hello! It looks like you have .Trash directories on Hippo. Please clean them
+up at your earliest convenience.
+
+The trash files we found were:

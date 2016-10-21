@@ -1,0 +1,7 @@
+==AUTOMATED MESSAGE FROM HIPPO WATCHDOG==
+
+Hippo is too full. It is xxxTARGETREPLACE1xx used.
+
+Here are the folder sorted by usage:
+
+xxTARGETREPLACE2xx
