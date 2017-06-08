@@ -23,6 +23,9 @@ find /net/cvcfs/storage -maxdepth 1 -type f | while read RAWFNAME; do
 
     if [ "$FILE_IS_LEGAL" = false ]; then
         OWNER="$(check-owner "$RAWFNAME")"
+        if [ "$OWNER" = "root" ]; then
+          continue  # Root's stuff
+        fi
         if [ $(looks-like-username "$OWNER") == "yes" ]; then
             ## Time to send mail!
             EMAIL_ADDR="${OWNER}@ices.utexas.edu"

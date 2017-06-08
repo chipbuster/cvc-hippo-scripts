@@ -33,6 +33,9 @@ find /net/cvcfs/storage -maxdepth 1 -type d | while read RAWFNAME; do
     done
 
     if [ "$FILE_IS_LEGAL" = false ]; then
+        if [ "$OWNER" = "root" ]; then
+          continue  # Root's stuff
+        fi
         OWNER="$(check-owner "$RAWFNAME")"
         if [ $(looks-like-username "$OWNER") == "yes" ]; then
              ## Time to send mail!
