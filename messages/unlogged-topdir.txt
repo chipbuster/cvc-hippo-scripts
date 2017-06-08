@@ -1,0 +1,8 @@
+==AUTOMATED MESSAGE FROM HIPPO WATCHDOG==
+
+You have a toplevel directory in /net/cvcfs/storage which is not properly
+recorded. Please consult the README.md for instructions on how to use 
+the store.
+
+The directory in question is:
+
