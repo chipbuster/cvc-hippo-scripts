@@ -38,6 +38,6 @@ find /net/cvcfs/storage -maxdepth 1 -type f | while read RAWFNAME; do
             mail -s "$SUBJECT" "$EMAIL_ADDR" < "$MESSAGE_FILE"
 
         fi
-        echo "ILLEGAL FILE $RAWFNAME owned by $OWNER"
+        echo "ILLEGAL FILE $RAWFNAME owned by $OWNER" >> $LOGFILE
     fi
 done

@@ -8,6 +8,7 @@ export STORDIR="/net/cvcfs/storage"    # The location of the CVCFS Store
 export OUTDIR="/net/cvcfs/storage/cvcfs-admin/output" # Location to log output
 export TODAY="$(date +%F)"             # Today's date
 export LOGDIR="$OUTDIR/$TODAY"         # Today's logs!
+export LOGFILE="$OUTDIR/$TODAY/issues.txt" # Today's issues!
 export TMPDIR="/tmp/cvcfsadmin"        # Place for temporary files
 export MSGDIR="$STORDIR/cvcfs-admin/scripts/messages"  # Message stubs
 

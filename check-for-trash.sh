@@ -28,6 +28,7 @@ find /net/cvcfs/storage -type d | while read FNAME; do
             mail -s "$SUBJECT" "$EMAIL_ADDR" < "$MESSAGE_FILE"
 
             echo "Trash file $BASEFNAME from owner $OWNER"
+            echo "Trash file $BASEFNAME from owner $OWNER" >> $LOGFILE
         fi
     fi
 
