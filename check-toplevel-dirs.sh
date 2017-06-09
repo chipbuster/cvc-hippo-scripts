@@ -16,9 +16,12 @@ while read p; do
     continue  # This is an empty line
   else
     VALID_DIR=$(echo "$p" | awk '{print $1}')
-    AUTHORIZED_FILES+=" $VALID_DIR"
+    AUTHORIZED_FILES+=("$VALID_DIR")
   fi
 done < "$STORDIR/project-contacts.txt"
+
+# For debugging purposes
+# echo ${AUTHORIZED_FILES[@]}
 
 # Check each file found at the toplevel. If it's illegal, bark!
 find /net/cvcfs/storage -maxdepth 1 -type d | while read RAWFNAME; do
@@ -33,12 +36,13 @@ find /net/cvcfs/storage -maxdepth 1 -type d | while read RAWFNAME; do
     done
 
     if [ "$FILE_IS_LEGAL" = false ]; then
+        OWNER="$(check-owner "$RAWFNAME")"
         if [ "$OWNER" = "root" ]; then
           continue  # Root's stuff
         fi
-        OWNER="$(check-owner "$RAWFNAME")"
         if [ $(looks-like-username "$OWNER") == "yes" ]; then
              ## Time to send mail!
+            echo "ILLEGAL $RAWFNAME FROM $OWNER"
             EMAIL_ADDR="${OWNER}@ices.utexas.edu"
             SUBJECT="[CVC Watchdog]: Unlogged Toplevel Directories Present"
 
@@ -50,7 +54,6 @@ find /net/cvcfs/storage -maxdepth 1 -type d | while read RAWFNAME; do
 
             # Send the message
             mail -s "$SUBJECT" "$EMAIL_ADDR" < "$MESSAGE_FILE"
-
         fi
         echo "ILLEGAL FILE $RAWFNAME owned by $OWNER" >> $LOGFILE
     fi
