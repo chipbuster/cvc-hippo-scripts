@@ -1,8 +1,8 @@
 ==AUTOMATED MESSAGE FROM HIPPO WATCHDOG==
 
 You have a toplevel directory in /net/cvcfs/storage which is not properly
-recorded. Please consult the README.md for instructions on how to use 
-the store.
+recorded. Please add an appropriate entry in project-contacts.txt and
+read the README.md for instructions on how to use the store.
 
 The directory in question is:
 

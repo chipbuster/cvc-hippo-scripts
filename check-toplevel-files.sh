@@ -7,7 +7,7 @@ source /net/cvcfs/storage/cvcfs-admin/scripts/config.sh
 cd "$LOGDIR"
 
 # List of files that are supposed to be in the toplevel
-AUTHORIZED_FILES=("project-contacts.md" "README.md" "VIEW_README_BEFORE_USING_CVCFS")
+AUTHORIZED_FILES=("project-contacts.txt" "README.md" "VIEW_README_BEFORE_USING_CVCFS")
 
 # Check each file found at the toplevel. If it's illegal, bark!
 find /net/cvcfs/storage -maxdepth 1 -type f | while read RAWFNAME; do
